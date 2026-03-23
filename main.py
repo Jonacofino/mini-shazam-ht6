@@ -1,8 +1,13 @@
+import os
 from src.database import SongDatabase
 from src.recognize import record_and_recognize
 
+# Busca songs/ relativo a donde está main.py
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SONGS_DIR = os.path.join(BASE_DIR, "songs")
+
 db = SongDatabase()
-db.index_directory("songs/")
+db.index_directory(SONGS_DIR)
 
 while True:
     input("Press Enter to recognize a clip (or Ctrl+C to quit)...")

@@ -65,7 +65,7 @@ class HashTable:
         Returns:
             An integer bucket index in [0, self._capacity)
         """
-        return int(key * 2654435761) & self.capacity
+        return int(key * 2654435761) & (self._capacity - 1)
 
 
     # ------------------------------------------------------------------ #
@@ -151,6 +151,7 @@ class HashTable:
         """
         if self._capacity == 0:
             return 0
+        return self._size / self._capacity
 
     def stats(self):
         """
